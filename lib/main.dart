@@ -1,4 +1,9 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:myapp/pages/home_page.dart';
+import 'package:myapp/pages/logein_page.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -6,19 +11,22 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
+    
+    
     return MaterialApp(
-      home: Material(
-        
-        child: Center(
-          // ignore: avoid_unnecessary_containers
-          child: Container(
-            child: const Text("30 days of flutter"),
-          ),
-        ),
+      
+      themeMode: ThemeMode.light,
+      theme: ThemeData(primarySwatch: Colors.green,
+      fontFamily: GoogleFonts.lato().fontFamily,
       ),
+      initialRoute: "/login",
+      routes: {
+        "/": (context) => LoginPage(),
+        "/home":(context) => HomePage(),
+        "/login": (context) => LoginPage(),
+      },
     );
   }
 }
