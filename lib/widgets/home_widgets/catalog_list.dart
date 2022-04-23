@@ -1,10 +1,9 @@
 // ignore_for_file: import_of_legacy_library_into_null_safe
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:myapp/pages/home_detali_page.dart';
 import '../../models/catalog.dart';
 import 'package:velocity_x/velocity_x.dart';
-
 import '../../widgets/themes.dart';
 import 'catalog_image.dart';
 
@@ -18,7 +17,17 @@ class CatalogList extends StatelessWidget {
       itemCount: CatalogModel.items.length,
       itemBuilder: (context, index) {
         final catalog = CatalogModel.items[index];
-        return CatalogItem(catalog: catalog);
+        return InkWell(
+          onTap: () => Navigator.push(
+            context,
+             MaterialPageRoute(
+               builder: (context) => HomeDetailPage(
+                 catalog: catalog
+                 )
+               )
+             ),
+          child: CatalogItem(catalog: catalog)
+          );
       },
     );
   }
@@ -36,7 +45,10 @@ class CatalogItem extends StatelessWidget {
     return VxBox(
       child: Row(
         children: [
-          CatalogImage(image: catalog.image),
+          Hero(
+            tag: Key(catalog.id.toString()),
+            child: CatalogImage(image: catalog.image)
+            ),
           Expanded(
               child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
