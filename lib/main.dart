@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:myapp/pages/cart_page.dart';
 import 'package:myapp/pages/home_page.dart';
 import 'package:myapp/pages/logein_page.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
     
     return MaterialApp(
       
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.system,
       theme: MyTheme.lightTheme(context),
       darkTheme: MyTheme.darkTheme(context),
       debugShowCheckedModeBanner: false,
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         "/": (context) => LoginPage(),
         MyRouts.homeRout:(context) => HomePage(),
         MyRouts.loginRout: (context) => LoginPage(),
+        MyRouts.CartRouts: (context) => CartPage(),
       },
     );
   }
