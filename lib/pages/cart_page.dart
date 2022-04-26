@@ -15,6 +15,35 @@ class CartPage extends StatelessWidget {
         backgroundColor: MyTheme.creamColor,
         title: "Cart".text.make(),
       ),
+      body: Column(
+        children: [
+          Placeholder().p32().expand(),
+          Divider(),
+          _CartTotal(),
+        ],
+      )
+    );
+  }
+}
+
+class _CartTotal extends StatelessWidget {
+  const _CartTotal({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 200,
+      child: Row(
+        children: [
+          "\$9999".text.color(context.theme.accentColor).make(),
+          30.widthBox,
+          ElevatedButton(
+            onPressed: (){},
+            style: ButtonStyle(backgroundColor: MaterialStateProperty.all(context.theme.primaryColor)),
+            child: "Buy".text.white.make()
+            )
+        ],
+      ),
     );
   }
 }
